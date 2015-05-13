@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+		<script src="../doT.min.js" type="text/javascript"></script>
+</head>
+<body>
+	
+<script id="pagetmpl" type="text/x-dot-template">
+{{~it.array :value:index}}
+<div>{{=value}}!</div>
+{{~}}
+</script>
+
+<div id="content"></div>
+
+</body>
+
+<script type="text/javascript">
+		var data = {"array":["banana","apple","orange"]};
+
+		var pagefn = doT.template(document.getElementById('pagetmpl').text);
+
+		var text = pagefn(data);
+		console.log(text);
+		document.getElementById('content').innerHTML = text;
+</script>
+
+<!--
+	function anonymous(it /**/) { var out='';var arr1=it.array;if(arr1){var value,index=-1,l1=arr1.length-1;while(index<l1){value=arr1[index+=1];out+='<div>'+(value)+'!</div>';} } return out; }
+	-->
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+		<script src="../doT.min.js" type="text/javascript"></script>
+</head>
+<body>
+
+<script id="pagetmpl" type="text/x-dot-template">
+	<div>Hi {{=it.name}}!</div>
+	<div>{{=it.age || ''}}</div>
+</script>
+
+<div id="content"></div>
+
+</body>
+
+<script type="text/javascript">
+		 
+		var data = {"name":"Jake","age":31};
+
+		var pagefn = doT.template(document.getElementById('pagetmpl').text);
+		
+		var text = pagefn(data);
+		console.log(text);
+		document.getElementById('content').innerHTML = text;
+</script>
+</html>

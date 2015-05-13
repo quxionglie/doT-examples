@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+		<script src="../doT.min.js" type="text/javascript"></script>
+</head>
+<body>
+	
+	
+<script id="pagetmpl" type="text/x-dot-template">
+{{~ ["apple", "banana", "orange"] :k}}
+	<div>{{=k}}</div>
+{{~}}
+
+{{~ (function(){ return [1,2,3]})() :k}}
+	{{=k}}
+{{~}}
+
+{{ for(var i=0; i < it.datas.length; i++) { }}
+	<div>{{=it.datas[i]}}</div>
+{{ } }}
+</script>
+
+<div id="content"></div>
+</body>
+
+<script type="text/javascript">
+		var data = {"datas":['a','b','c']};
+		var pagefn = doT.template(document.getElementById('pagetmpl').text);
+		
+		var text = pagefn(data);
+		console.log(text);
+		document.getElementById('content').innerHTML = text;
+</script>
+
+<!-- console out :
+<div>apple</div><div>banana</div><div>orange</div>123<div>a</div><div>b</div><div>c</div>
+-->
+
+</html>

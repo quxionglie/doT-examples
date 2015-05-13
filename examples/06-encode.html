@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+		<script src="../doT.min.js" type="text/javascript"></script>
+</head>
+<body>
+	
+	
+<script id="pagetmpl" type="text/x-dot-template">
+Visit {{!it.uri}}
+</script>
+
+<div id="content"></div>
+
+</body>
+
+<script type="text/javascript">
+		 
+		var data = {"uri":"https://github.com/olado/doT"};
+
+		var pagefn = doT.template(document.getElementById('pagetmpl').text);
+		document.getElementById('content').innerHTML = pagefn(data);
+
+</script>
+<!-- 
+function anonymous(it /**/) { var encodeHTML = typeof _encodeHTML !== 'undefined' ? _encodeHTML : (function (b){var a={"&":"&","<":"<",">":">",'"':""","'":"'","/":"/"},d=b?/[&<>"'\/]/g:/&(?!#?\w+;)|<|>|"|'|\//g;return function(b){return b? b.toString().replace(d,function(b){return a[b]||b}):""}}());var out='Visit '+encodeHTML(it.uri);return out; }
+-->
+</html>
